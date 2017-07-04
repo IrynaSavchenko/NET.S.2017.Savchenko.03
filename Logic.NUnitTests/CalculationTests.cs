@@ -8,12 +8,7 @@ namespace Logic.NUnitTests
     {
         #region Even Index
 
-        private static int[] beyondMaxSizeArray;
-
-        public CalculationTests()
-        {
-            beyondMaxSizeArray = new int[Calculation.MaxArraySize];
-        }
+        private static int[] BeyondMaxSizeArray => new int[Calculation.MaxArraySize];
 
         [TestCase(new [] { 1, 2, 3, 4, 3, 2, 1 }, ExpectedResult = 3)]
         [TestCase(new [] { 1, 100, 50, -51, 1, 1 }, ExpectedResult = 1)]
@@ -24,7 +19,7 @@ namespace Logic.NUnitTests
         }
 
         [TestCase(new int[] {})]
-        [Test, TestCaseSource(nameof(beyondMaxSizeArray))]
+        [Test, TestCaseSource(nameof(BeyondMaxSizeArray))]
         public void FindEvenIndex_InvalidInputArray_ThrowsArgumentException(int[] array)
         {
             Assert.Throws<ArgumentException>(() => Calculation.FindEvenIndex(array));
