@@ -80,32 +80,30 @@ namespace Logic
         /// <returns></returns>
         public static int FindEvenIndex(int[] array)
         {
-        	CheckArray(array);
-        	for(int i = 1; i < array.Length; i++)
-        	{
-        		if(GetSum(array, 0, i - 1) == GetSum(array, i + 1, array.Length - 1))
-        		{
-        			return i;
-        		}
-        	}
-        	return -1;
+            CheckArray(array);
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (GetSum(array, 0, i - 1) == GetSum(array, i + 1, array.Length - 1))
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private static int GetSum(int[] array, int start, int end)
         {
-        	int sum = 0;
-
+            int sum = 0;
             for (int i = start; i <= end; i++)
-        	{
-        		sum += array[i];
-        	}
-
-        	return sum;
+            {
+                sum += array[i];
+            }
+            return sum;
         }
 
         private static void CheckArray(int[] array)
         {
-        	if (array == null)
+            if (array == null)
             {
                 throw new ArgumentNullException(nameof(array));
             }
